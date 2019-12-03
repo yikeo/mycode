@@ -1,0 +1,37 @@
+<div class="row">
+    <div class="col-2">
+        <ul cdkDropList
+        #todoList="cdkDropList"
+        [cdkDropListData]="todo"
+        [cdkDropListConnectedTo]="[doneList]"
+        (cdkDropListDropped)="drop($event)"
+        class="list-group property-list">
+            <li *ngFor="let item of todo" cdkDrag class="list-group-item list-group-item-action">{{item.propertyName}}</li>
+        </ul>
+    </div>
+    <div class="col-9">
+        <div 
+        cdkDropList
+        #doneList="cdkDropList"
+        [cdkDropListData]="done"
+        [cdkDropListConnectedTo]="[todoList]"
+        (cdkDropListDropped)="drop($event)"
+        cdkDropListOrientation="horizontal"
+        class="row property-list">
+            <div *ngFor="let item of done" cdkDrag class="col-4 property-box" [class.ml-auto]="item.type == 'ToolButton'" >
+                <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
+                <div class="form-group row" *ngIf="item.type != 'ToolButton'">
+                    <label for="{{item.propertyName}}" class="col-4 col-form-label">{{item.propertyDesc}}:</label>
+                    <div class="col-8">
+                        <input type="text" class="form-control" id="{{item.propertyName}}" placeholder="{{item.propertyDesc}}">
+                    </div>
+                </div>
+                <div class="form-group row" *ngIf="item.type == 'ToolButton'">
+                    <div class="col-12 text-right">
+                        <button type="submit" class="btn btn-primary">查询按钮</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

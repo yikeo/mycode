@@ -1,0 +1,103 @@
+<div class="row">
+    <div class="col-8 offset-2">
+        <form [formGroup]="form">
+            <h3 class="text-center mb-4">基本信息配置</h3>
+            <div class="form-group row">
+                <label for="databaseType" class="col-3 col-form-label">数据库类型：</label>
+                <div class="col-9">
+                    <select class="form-control" formControlName="databaseType">
+                        <option *ngFor="let database of databases" [ngValue]="database">
+                            {{ database }}
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="keyword" class="col-3 col-form-label">项目设置：</label>
+                <div class="col-9 input-group">
+                    <input type="text" class="form-control" id="companyDomain" formControlName="companyDomain" placeholder="com.company">
+                    <input type="text" class="form-control" id="projectName" formControlName="projectName" placeholder="proj">
+                    <input type="text" class="form-control" id="moduleName" formControlName="moduleName" placeholder="module">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="keyword" class="col-3 col-form-label">关键字：</label>
+                <div class="col-9 input-group">
+                    <input type="text" class="form-control" id="keyword" formControlName="keyword" placeholder="Xyz">
+                    <input type="text" class="form-control" id="keywordDesc" formControlName="keywordDesc"
+                        placeholder="Xyz Description">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="tableName" class="col-3 col-form-label">表名：</label>
+                <div class="col-9">
+                    <input type="text" class="form-control" id="tableName" formControlName="tableName"
+                        placeholder="t_xxx">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="sequenceName" class="col-3 col-form-label">序列名：</label>
+                <div class="col-9">
+                    <input type="text" class="form-control" id="sequenceName" formControlName="sequenceName"
+                        placeholder="t_xxx_seq">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="modelClazz" class="col-3 col-form-label">Model类名：</label>
+                <div class="col-9">
+                    <input type="text" class="form-control" id="modelClazz" formControlName="modelClazz"
+                        placeholder="com.company.proj.model.module.XyzVo">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="daoClazz" class="col-3 col-form-label">DAO类名：</label>
+                <div class="col-9">
+                    <input type="text" class="form-control" id="daoClazz" formControlName="daoClazz"
+                        placeholder="com.company.proj.dao.inf.module.XyzMapper">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="daoClazz" class="col-3 col-form-label">DAO Mapper：</label>
+                <div class="col-9">
+                    <input type="text" class="form-control" id="daoMapper" formControlName="daoMapper"
+                        placeholder="resources/mappings/proj/module/XyzMapper.xml">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="serviceClazz" class="col-3 col-form-label">Service：</label>
+                <div class="col-9">
+                    <input type="text" class="form-control" id="serviceInterface" formControlName="serviceInterface"
+                        placeholder="com.company.proj.bs.inf.module.XyzService">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="serviceClazz" class="col-3 col-form-label">Service类名：</label>
+                <div class="col-9">
+                    <input type="text" class="form-control" id="serviceClazz" formControlName="serviceClazz"
+                        placeholder="com.company.proj.bs.impl.module.XyzServiceImpl">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="controllerClazz" class="col-3 col-form-label">Controller类名：</label>
+                <div class="col-9">
+                    <input type="text" class="form-control" id="controllerClazz" formControlName="controllerClazz"
+                        placeholder="com.company.proj.controller.url.module.XyzUrlController">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="jsonControllerClazz" class="col-3 col-form-label">Json Controller类名：</label>
+                <div class="col-9">
+                    <input type="text" class="form-control" id="jsonControllerClazz"
+                        formControlName="jsonControllerClazz"
+                        placeholder="com.company.proj.controller.json.module.XyzJsonController">
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-9">
+                    <button type="button" class="btn btn-primary" (click)="onNext()">下一步</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
